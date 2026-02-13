@@ -409,11 +409,15 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .btn {
+        width: 10rem;
+    }
+    
     nav {
         display: none;
         position: absolute;
         top: 100%;
-        left: 0;
+        left: 50%;
         right: 0;
         background: var(--white);
         flex-direction: column;
