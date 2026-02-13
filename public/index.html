@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profi-raizen - Юридические услуги</title>
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="#">
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <svg viewBox="0 0 550 550">
+                    <rect width="550" height="550" rx="50" style="fill: var(--primary);"></rect>
+                    <path d="M 444.621 79.475 C 455.411 84.715 459.823 97.669 454.475 108.408 L 328.494 361.35 C 326.924 364.501 324.689 367.112 322.04 369.095 C 317.999 372.179 313.195 373.623 308.451 373.498 C 305.356 373.448 302.228 372.74 299.271 371.304 C 295.308 369.379 292.204 366.414 290.129 362.9 L 179.217 229.22 L 73.335 439.759 C 67.945 450.477 54.845 454.883 44.075 449.601 C 33.303 444.318 28.942 431.348 34.332 420.63 L 155.097 180.496 C 156.393 177.696 158.302 175.128 160.804 173.01 C 166.747 167.977 174.577 166.718 181.434 168.98 C 182.495 169.31 183.544 169.726 184.572 170.23 C 188.463 172.139 191.517 175.05 193.578 178.496 L 304.468 312.15 L 415.398 89.429 C 420.746 78.691 433.83 74.234 444.621 79.475 Z" style="fill: var(--accent);transform: translateX(30px);"></path>
+                    <path d="M 364.821 80.675 L 440.597 233.775 L 289.045 233.775 L 364.821 80.675 Z" bx:shape="triangle 289.045 80.675 151.552 153.1 0.5 0 1@a374b5c7" style="fill: var(--accent);transform-box: fill-box;transform-origin: 0% 75%;" transform="matrix(0.887048, 0.461677, -0.461677, 0.887048, 80.196872, -76.79258)"></path>
+                </svg>
+                <span class="logo-text">Profi<span>Raizen</span></span>
+            </a>
+            <nav id="nav">
+                <a href="#services">Услуги</a>
+                <a href="#about">О нас</a>
+                <a href="#contact">Контакты</a>
+            </nav>
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <line x1="3" y1="12" x2="21" y2="12" />
+                    <line x1="3" y1="18" x2="21" y2="18" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Ваше право — наша <span>профессия</span></h1>
+                <p>
+                    Профессиональная юридическая помощь для частных лиц и бизнеса.
+                    Защитим ваши интересы и поможем найти выход из любой правовой
+                    ситуации.
+                </p>
+                <a href="#contact" class="btn">Консультация</a>
+                <a href="#services" class="btn btn-outline">Услуги</a>
+            </div>
+            <div class="hero-image">
+                <!-- <img src="https://284baef4-3d14-4ca5-8247-4811f0d6b14b.selstorage.ru/8d393613-8f31-486c-968b-d08767eafc8a_10c71343-c55f-4dab-ba17-97a07f238eca.png"
+                    alt="ProfiRaizen" /> -->
+                <img src="img/hero005.jpg" alt="ProfiRaizen" />
+            </div>
+        </div>
+    </section>
+
+    <section class="stats" id="about">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h2>15+</h2>
+                <p>лет опыта</p>
+            </div>
+            <div class="stat-item">
+                <h2>1500+</h2>
+                <p>выигранных дел</p>
+            </div>
+            <div class="stat-item">
+                <h2>98%</h2>
+                <p>довольных клиентов</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <h2 class="section-title">Наши услуги</h2>
+        <p class="section-subtitle">
+            Полный спектр юридических услуг для решения ваших задач
+        </p>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M20 6H4V4h16v2zm0 4H4v2h16v-2zm0 6H4v2h16v-2zm-8 4H4v2h8v-2z" />
+                    </svg>
+                </div>
+                <h3>Корпоративное право</h3>
+                <p>
+                    Регистрация компаний, сопровождение сделок, корпоративные споры и
+                    реструктуризация бизнеса.
+                </p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                    </svg>
+                </div>
+                <h3>Судебные споры</h3>
+                <p>
+                    Представительство в судах всех инстанций, арбитражные и гражданские
+                    дела, досудебное урегулирование.
+                </p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14H6v-2h6v2zm4-4H6v-2h10v2zm0-4H6V7h10v2z" />
+                    </svg>
+                </div>
+                <h3>Договорное право</h3>
+                <p>
+                    Составление, экспертиза и сопровождение договоров любой сложности
+                    для защиты ваших интересов.
+                </p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                    </svg>
+                </div>
+                <h3>Семейное право</h3>
+                <p>
+                    Бракоразводные процессы, раздел имущества, алименты, определение
+                    места жительства детей.
+                </p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                    </svg>
+                </div>
+                <h3>Недвижимость</h3>
+                <p>
+                    Сопровождение сделок с недвижимостью, проверка юридической чистоты,
+                    споры о собственности.
+                </p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" />
+                    </svg>
+                </div>
+                <h3>Защита прав</h3>
+                <p>
+                    Защита прав потребителей, трудовые споры, защита чести и
+                    достоинства, авторские права.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <h2 class="section-title">Свяжитесь с нами</h2>
+            <p class="section-subtitle">
+                Получите бесплатную консультацию прямо сейчас
+            </p>
+            <form class="contact-form" onsubmit="handleSubmit(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Ваше имя</label>
+                        <input type="text" id="name" required placeholder="Иван Иванов" />
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Телефон</label>
+                        <input type="tel" id="phone" required placeholder="+7 (999) 123-45-67" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required placeholder="example@mail.ru" />
+                </div>
+                <div class="form-group">
+                    <label for="message">Опишите вашу ситуацию</label>
+                    <textarea id="message" placeholder="Кратко опишите вашу проблему..."></textarea>
+                </div>
+                <button type="submit" class="btn">Отправить заявку</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>ProfiRaizen</h4>
+                <p>
+                    Профессиональная юридическая помощь с 2010 года. Мы защищаем ваши
+                    права и интересы.
+                </p>
+            </div>
+            <div class="footer-section">
+                <h4>Контакты</h4>
+                <p>📍 Москва, ул. Правовая, д. 15</p>
+                <p>📞 +7 (495) 123-45-67</p>
+                <p>✉️ info@profiraizen.ru</p>
+            </div>
+            <div class="footer-section">
+                <h4>Режим работы</h4>
+                <p>Пн-Пт: 9:00 - 19:00</p>
+                <p>Сб: 10:00 - 15:00</p>
+                <p>Вс: выходной</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2021-2026 ProfiRaizen. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('nav').classList.toggle('active');
+        }
+
+        function handleSubmit(e) {
+            e.preventDefault();
+            const form = e.target;
+            const btn = form.querySelector('button');
+            const originalText = btn.textContent;
+
+            btn.textContent = 'Отправлено ✓';
+            btn.style.background = '#38a169';
+
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.style.background = '';
+                form.reset();
+            }, 3000);
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+                document.getElementById('nav').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
