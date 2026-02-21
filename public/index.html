@@ -10,7 +10,7 @@
 <body>
     <header>
         <div class="header_container">
-            <a href="#" class="logo">    
+            <a href="#hero" class="logo">    
                 <svg viewBox="0 0 50 50">
                     <rect width="50" height="50" rx="7" style="fill: var(--primary);"></rect>
                     <path style="fill: var(--accent); transform: translate3d(5px, 5px, 0);" d="M 6.78 31.354 L 2 27.525 L 9.211 18.539 L 9.21 18.539 L 11.021 16.284 C 12.008 15.051 13.809 14.854 15.042 15.841 L 22.143 21.529 L 27.568 14.769 L 24.964 12.667 C 23.707 11.652 23.731 10.978 25.037 10.648 L 35.111 8.098 C 36.418 7.767 37.045 8.276 36.997 9.621 L 36.626 20.007 C 36.577 21.353 35.925 21.518 34.666 20.503 L 32.023 18.369 L 24.802 27.366 C 23.814 28.598 22.015 28.796 20.782 27.808 L 13.991 22.368 L 6.78 31.354 Z"/>
@@ -32,9 +32,9 @@
         </div>
     </header>
 
-    <section class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
+    <section class="hero" id="hero">
+        <div class="hero_container">
+            <div class="hero_content">
                 <h1>Ваше право — наша <span>профессия</span></h1>
                 <p>
                     Юридическая помощь частным лицам и бизнесу.
@@ -42,9 +42,9 @@
                     ситуации.
                 </p>
                 <a href="#ask" class="btn">Задать вопрос</a>
-                <!-- <a href="#services" class="btn btn-outline">Наши услуги</a> -->
+                <!-- <a href="#services" class="btn btn_outline">Наши услуги</a> -->
             </div>
-            <div class="hero-image">
+            <div class="hero_image">
                 <img src="img/hero005.png" alt="ProfiRaizen" />
             </div>
         </div>
@@ -122,27 +122,27 @@
     </section>
 
     <section class="ask" id="ask">
-        <div class="contact-container">
+        <div class="ask_container">
             <h2 class="section-title">Задать вопрос</h2>
             <!-- <p class="section-subtitle">
                 Получите бесплатную консультацию
             </p> -->
-            <form class="contact-form" onsubmit="handleSubmit(event)">
-                <div class="form-row">
-                    <div class="form-group">
+            <form class="ask_form" onsubmit="handleSubmit(event)">
+                <div class="form_row">
+                    <div class="form_group">
                         <label for="name">Ваше имя</label>
                         <input type="text" id="name" required placeholder="Иван Иванов" />
                     </div>
-                    <div class="form-group">
+                    <div class="form_group">
                         <label for="phone">Телефон</label>
                         <input type="tel" id="phone" required placeholder="+7 (999) 123-45-67" />
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form_group">
                     <label for="email">Email</label>
                     <input type="email" id="email" placeholder="example@mail.ru" />
                 </div>
-                <div class="form-group">
+                <div class="form_group">
                     <label for="message">Опишите вашу ситуацию</label>
                     <textarea id="message" placeholder="Кратко опишите вашу проблему..." maxlength="256"></textarea>
                 </div>
@@ -152,14 +152,14 @@
     </section>
 
     <section class="stats" id="about">
-        <div class="stats-grid">
-            <div class="stat-item">
+        <div class="stats_grid">
+            <div class="stat_item">
                 <h2>15+</h2><p>лет на рынке</p>
             </div>
-            <div class="stat-item">
+            <div class="stat_item">
                 <h2>20</h2><p>сотрудников</p>
             </div>
-            <div class="stat-item">
+            <div class="stat_item">
                 <h2>97%</h2><p>успешных дел</p>
             </div>
             <!-- 
