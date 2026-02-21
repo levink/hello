@@ -10,7 +10,7 @@
     --accent: #ff5168;
     --text: #2d3748;
     --text_light: #718096;
-    --bg: #f7fafc;
+    --bg: #f1f1f1;
     --white: #ffffff;
     --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     --shadow_hover: 0 0px 20px rgba(0, 0, 0, 0.1);
@@ -33,9 +33,6 @@ header {
     top: 0;
     z-index: 1000;
 }
-header ~ section {
-    scroll-margin-top: 4rem;
-}
 .header_container {
     max-width: 1200px;
     margin: 0 auto;
@@ -57,6 +54,7 @@ header ~ section {
 .header_container .logo_text {
     font-size: 1.5rem;
     font-weight: 700;
+    letter-spacing: 0.5px;
     color: var(--primary);
 }
 .header_container .logo_text span {
@@ -71,8 +69,10 @@ nav {
 nav a {
     text-decoration: none;
     color: var(--text);
-    font-weight: 500;
-    transition: color 0.3s ease;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
     position: relative;
 }
 nav a:hover {
@@ -86,7 +86,8 @@ nav a::after {
     width: 0;
     height: 2px;
     background: var(--accent);
-    transition: width 0.3s ease;
+    /* background: var(--primary); */
+    transition: width 0.2s ease;
 }
 nav a:hover::after {
     width: 100%;
@@ -128,6 +129,9 @@ nav a:hover::after {
 }
 
 /* Common sections */
+header ~ section {
+    scroll-margin-top: 4rem;
+} 
 .section-title {
     text-align: center;
     font-size: 2.5rem;
@@ -139,7 +143,6 @@ nav a:hover::after {
     color: var(--text_light);
     margin-bottom: 3rem;
 }
-
 
 /* Hero */
 .hero {
@@ -185,7 +188,6 @@ nav a:hover::after {
 
 /* Services */
 .services {
-    scroll-margin-top: 4rem;
     padding: 2rem 2rem;
 }
 .services-grid {
@@ -227,6 +229,81 @@ nav a:hover::after {
 .service_card p {
     padding-left: 2rem;
     color: var(--text_light);
+}
+
+.price {
+    padding: 2rem 2rem;
+}
+.price .section-subtitle {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+.price_container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.price table {
+    border-collapse: collapse;
+}
+.price tr {
+    transition: background-color 0.2s ease;
+    background-color: var(--white);
+}
+.price tr:hover {
+    background-color: var(--bg);
+}
+.price tr:hover td:not(:last-child) {
+    border-right:1px rgba(26, 26, 26, 0.1) solid;
+}
+.price th {
+    border: 1px var(--bg) solid;
+    padding: 1rem;
+    background: var(--primary);
+    color: var(--white);
+    font-weight: 600;
+}
+.price th:first-child {
+    text-align: start;
+    padding: 1rem 2rem;
+}
+.price td {
+    border: 1px var(--bg) solid;
+    padding: 2rem;
+}
+.price td:not(:first-child) {
+    min-width: 12rem;
+    text-align: center;
+}
+.price_value {
+    font-size: 1.2rem;
+    height: 2.2rem;
+    font-weight: 500;
+    display: inline-block;
+    vertical-align: middle;
+}
+.price .container1 {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .price th:not(:first-child) {
+        display: none;
+    }
+    .price td:not(:first-child) {
+        display: none;
+    }
+    .price td {
+        border-color: var(--bg) !important;
+        padding: 1rem;
+    }
+    .price td > p {
+        margin-bottom: 1rem;
+    }
+    .price .container1 {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
 }
 
 
@@ -284,15 +361,25 @@ nav a:hover::after {
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
 }
+.form_checkbox {
+    padding: 0rem 2rem;
+    margin-bottom: 1.5rem;
+}
+.form_checkbox input {
+    width: 1.2rem;
+    height: 1.2rem;
+    vertical-align: sub;
+}
+.form_checkbox a {
+    color: var(--text);
+}
 
 
-
-/* Stats Section */
-.stats {
+/* About section */
+.about {
     padding: 2rem 2rem;
     background: var(--primary);
 }
-
 .stats_grid {
     max-width: 1200px;
     margin: 0 auto;
@@ -301,17 +388,17 @@ nav a:hover::after {
     gap: 2rem;
     text-align: center;
 }
-
 .stat_item h2 {
     font-size: 3rem;
     color: var(--accent);
     margin-bottom: 0.5rem;
 }
-
 .stat_item p {
     color: var(--white);
     font-size: 1.1rem;
 }
+
+
 
 footer {
     background: var(--primary);

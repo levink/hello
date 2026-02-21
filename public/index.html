@@ -19,6 +19,7 @@
             </a>
             <nav id="nav">
                 <a href="#services">Услуги</a>
+                <a href="#price">Стоимость</a>
                 <a href="#about">О нас</a>
                 <a href="#contact">Контакты</a>
             </nav>
@@ -121,12 +122,104 @@
 
     </section>
 
+    <section class="price" id="price">
+        <h2 class="section-title">Стоимость</h2>
+        <div class="price_container">
+            <p class="section-subtitle">
+                Стоимость услуг, указываемая в договоре - является окончательной
+            </p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Описание</th>
+                        <th>Физическим<br>лицам</th>
+                        <th>Юридическим<br>лицам</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <p>Устная консультация, не требующая предварительной проработки. Дача устных рекомендаций.</p>
+                            <div class="container1">
+                                <span>Физическим лицам</span>
+                                <span>от <span class="price_value">3000</span> руб</span>
+                            </div>
+                            <div class="container1">
+                                <span>Юридическим лицам</span>
+                                <span>от <span class="price_value">5000</span> руб</span>
+                            </div>
+                        </td>
+                        <td>от <span class="price_value">3000</span> руб</td>
+                        <td>от <span class="price_value">5000</span> руб</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Письменная консультация, требующая предварительной проработки. Дача письменных рекомендаций.</p>
+                            <div class="container1">
+                                <span>Физическим лицам</span>
+                                <span>от <span class="price_value">5000</span> руб</span>
+                            </div>
+                            <div class="container1">
+                                <span>Юридическим лицам</span>
+                                <span>от <span class="price_value">7000</span> руб</span>
+                            </div>
+                        </td>
+                        <td>от <span class="price_value">5000</span> руб</td>
+                        <td>от <span class="price_value">7000</span> руб</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Подготовка дела к судебному разбирательству (сбор документов, составление иска или иного процессуального документа)</p>
+                            <div class="container1">
+                                <span>Физическим лицам</span>
+                                <span>от <span class="price_value">15000</span> руб</span>
+                            </div>
+                            <div class="container1">
+                                <span>Юридическим лицам</span>
+                                <span>от <span class="price_value">20000</span> руб</span>
+                            </div>
+                        </td>
+                        <td>от <span class="price_value">15000</span> руб</td>
+                        <td>от <span class="price_value">20000</span> руб</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Подача искового заявления в суд.</p>
+                            <div class="container1">
+                                <span>Физическим лицам</span>
+                                <span>от <span class="price_value">5000</span> руб</span>
+                            </div>
+                            <div class="container1">
+                                <span>Юридическим лицам</span>
+                                <span>от <span class="price_value">7000</span> руб</span>
+                            </div>
+                        </td>
+                        <td>от <span class="price_value">5000</span> руб</td>
+                        <td>от <span class="price_value">7000</span> руб</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Подготовка / экспертиза договора.</p>
+                            <div class="container1">
+                                <span>Физическим лицам</span>
+                                <span>от <span class="price_value">7000</span> руб</span>
+                            </div>
+                            <div class="container1">
+                                <span>Юридическим лицам</span>
+                                <span>от <span class="price_value">13000</span> руб</span>
+                            </div>
+                        </td>
+                        <td>от <span class="price_value">7000</span> руб</td>
+                        <td>от <span class="price_value">13000</span> руб</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
     <section class="ask" id="ask">
         <div class="ask_container">
             <h2 class="section-title">Задать вопрос</h2>
-            <!-- <p class="section-subtitle">
-                Получите бесплатную консультацию
-            </p> -->
             <form class="ask_form" onsubmit="handleSubmit(event)">
                 <div class="form_row">
                     <div class="form_group">
@@ -146,12 +239,16 @@
                     <label for="message">Опишите вашу ситуацию</label>
                     <textarea id="message" placeholder="Кратко опишите вашу проблему..." maxlength="256"></textarea>
                 </div>
+                <div class="form_checkbox">
+                    <input type="checkbox" id="agree" name="agree" value="1" required />
+                    <label for="agree">Даю согласие на обработку <a href="#">персональных данных</a></label>
+                </div>
                 <button type="submit" class="btn">Отправить заявку</button>
             </form>
         </div>
     </section>
 
-    <section class="stats" id="about">
+    <section class="about" id="about">
         <div class="stats_grid">
             <div class="stat_item">
                 <h2>15+</h2><p>лет на рынке</p>
