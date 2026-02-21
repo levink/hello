@@ -5,8 +5,6 @@ const host = '127.0.0.1';
 const port = 3500;
 const app = express();
 
-
-
 app.use(express.static("public"));
 
 // app.get('/test', (request, responce) => {
