@@ -190,12 +190,38 @@ header ~ section {
 .services {
     padding: 2rem 2rem;
 }
-.services-grid {
+.services_container {
+    max-width: 1200px;
+    margin: 0 auto;
+    filter: drop-shadow(var(--shadow));
+}
+.services_header {
+    > li {
+        display: table-cell;
+        padding: 2rem;
+        font-size: 1.3rem;
+        color: var(--primary);
+        cursor: pointer;
+        background-color: transparent;
+        /* background-color: #e2e8f0; */
+    }
+    > li.active {
+        background-color: var(--white);
+        border-radius: var(--form_radius);
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+}
+.services_grid {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: var(--form_radius);
+    border-top-left-radius: 0;
 }
 .service_card {
     padding: 2rem;
@@ -205,7 +231,7 @@ header ~ section {
     cursor: pointer;
 }
 .service_card:hover {
-    transform: translateY(-4px);
+    /* transform: translateY(-4px); */
     box-shadow: var(--shadow_hover);
     border-color: var(--primary);
 }
@@ -231,8 +257,12 @@ header ~ section {
     color: var(--text_light);
 }
 
+
+/* #region Price section */
+
 .price {
     padding: 2rem 2rem;
+    display: none;
 }
 .price .section-subtitle {
     margin-bottom: 1rem;
@@ -306,7 +336,7 @@ header ~ section {
     }
 }
 
-
+/* #endregion Price section */
 
 /* Ask-form section */
 .ask {
