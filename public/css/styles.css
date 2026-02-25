@@ -214,6 +214,10 @@ header ~ section {
     border-radius: var(--form_radius);
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+    transition: color 0.2s ease;
+}
+.service_tab:hover:not(.active) {
+    color:var(--accent);
 }
 .service_tab.active {
      background-color: var(--white);
