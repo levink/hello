@@ -54,13 +54,12 @@
         <h2 class="section-title">Услуги</h2>
         <div class="services_container">
             
-            <input type="radio" name="selected_tab" value="services_tab_0" id="services_tab_0" checked />
-            <label for="services_tab_0">Юридические</label>
-
-            <input type="radio" name="selected_tab" value="services_tab_1" id="services_tab_1" />
-            <label for="services_tab_1">Бухгалтерские</label>
-
-            <div class="services_grid services_tab_0">
+            <div class="services_tabs">
+                <div class="service_tab active" onclick="toggleTab()">Юридические</div>
+                <div class="service_tab" onclick="toggleTab()">Бухгалтерские</div>
+            </div>
+            
+            <div class="services_grid grid_0 active">
                 
                 <div class="service_card">
                     <div class="title">
@@ -127,7 +126,7 @@
                 </div>
             </div>
 
-            <div class="services_grid services_tab_1">
+            <div class="services_grid grid_1">
                 
                 <div class="service_card">
                     <div class="title">
@@ -193,6 +192,7 @@
                     <p>Четыре</p>
                 </div>              
             </div>
+
         </div>
     </section>
     
@@ -369,6 +369,19 @@
     </footer>
 
     <script>
+        function toggleTab() {
+            const parent = document.getElementById('services');
+            const tabs = parent.getElementsByClassName('service_tab');
+            const grids = parent.getElementsByClassName('services_grid');
+
+            for(let item of tabs) {
+                item.classList.toggle('active');
+            }
+
+            for (let item of grids) {
+                item.classList.toggle('active');
+            }
+        }
 
         function toggleMenu() {
             document.getElementById('nav').classList.toggle('active');
