@@ -60,6 +60,14 @@ header {
 .header_container .logo_text span {
     color: var(--accent);
 }
+.header_container .phone {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    font-size: 1.25rem;
+    margin-left: auto;
+    margin-right: 3rem;
+}
 
 /* Top menu */
 nav {
@@ -487,6 +495,18 @@ header ~ section {
 
 
 /* #region Contact */
+.contact {
+    padding: 2rem 2rem;
+}
+.contact_container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.contact_container > h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--primary);
+}
 .map_container {
     padding: 2rem 2rem;
     max-width: 800px;
