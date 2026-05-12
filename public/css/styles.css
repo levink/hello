@@ -501,6 +501,7 @@ header ~ section {
 .contact_container {
     max-width: 1200px;
     margin: 0 auto;
+    padding-bottom: 2rem;
 }
 .contact_container > h1 {
     font-size: 3rem;
@@ -513,8 +514,6 @@ header ~ section {
     gap: 3rem;
     align-items: flex-start;
 }
-
-
 .contact_item {
     display: flex;
     align-items: normal;
@@ -556,7 +555,7 @@ header ~ section {
 footer {
     background: var(--primary);
     color: var(--white);
-    padding: 2rem;
+    padding: 1rem;
 }
 .footer-bottom {
     text-align: center;

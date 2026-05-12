@@ -1,25 +1,45 @@
 const express = require("express");
 const fs = require("fs");
+const mysql = require('mysql2');
+const cfg = require("./config");
 
-const host = '127.0.0.1';
-const port = 3500;
+
 const app = express();
+const config = cfg.parse(process.argv);
+
+if (config.has_errors()) {
+    console.log(`[Error] config is not ready`);
+    return;
+} 
+
+const pool = mysql.createPool({
+  host:     'localhost',
+  user:     config.db_user,
+  password: config.db_pass,
+  database: config.db_name,
+  waitForConnections: true,
+  connectionLimit: 10, // Adjust the limit based on your needs
+  queueLimit: 0
+}).promise();
 
 app.use(express.static("public"));
-
 // app.get('/test', (request, responce) => {
 //     responce.sendFile(__dirname + "/public/index.html");
 // })
 
-const server = app.listen(port, host, () => {
-    console.log(`App listening ${host}:${port}`)
+const server = app.listen(config.port, config.host, () => {
+    console.log(`App listening ${config.host}:${config.port}`)
 })
 
 process.on('SIGINT', () => { 
     console.log('\nSIGINT received: closing server');
     server.close(() => {
-        console.log('Server closed. Closing database connections, etc.');
-        process.exit(0);
+        console.log('Server stopped. Closing database connections, etc.');
+        pool.end().then(() => {
+            console.log('DB pool closed.');
+        }).finally(() => {
+            process.exit(0);
+        });
     });
 });
 
@@ -41,9 +61,4 @@ process.on('SIGINT', () => {
 //         }
 //     });
 // });
-
-// server.listen(port, host, () => {
-//     console.log('Server running...');
-// });
-
 
