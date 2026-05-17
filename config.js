@@ -1,3 +1,23 @@
+/*
+    Default app configuration.
+    
+    Nullable properties must be set with command arguments. 
+    
+    Example:
+    node app.js db_pass=1111 notify_pass=qwerty
+*/
+
+const config = {
+    host: '127.0.0.1',
+    port: '3500',
+    db_user: null,
+    db_name: null,
+    db_pass: null, 
+    notyfy_sender: null,
+    notify_pass: null,
+    notify_targets: null,
+};
+
 function split_item(option) {
     // Split the first '=' and capture everything after it
     const regex = /=(.*)/;
@@ -9,14 +29,6 @@ function split_item(option) {
 }
 
 export function parse (argv) {
-    
-    var config = {
-        host: '127.0.0.1',
-        port: '3500',
-        db_user: null,
-        db_pass: null, 
-        db_name: 'profi_db'
-    };
 
     var errors = 0;
     if (argv.length <= 2) {
@@ -28,19 +40,26 @@ export function parse (argv) {
         const [name, value] = split_item(argv[i]);
         
         if (value == null) {
-            console.log(`[Warning] value for '${name}' is undefined. Skip this`);
+            console.log(`[Error] value for argv parameter '${name}' is undefined. Skip this`);
             errors++;
             continue;
         }
         
         if (config[name] === undefined) {
-            console.log(`[Warning] unexpected property '${name}=${value}'. Skip this`);
+            console.log(`[Error] config has unexpected property '${name}=${value}'. Skip this`);
             errors++;
             continue;
         }
 
         config[name] = value;
     }
+
+    Object.keys(config).forEach(key => {
+        if (config[key] == null) {
+            console.log(`[Error] 'config.${key}' does not set.`);
+            errors++;
+        }
+    });
 
     config.has_errors = function() {
         return errors != 0;

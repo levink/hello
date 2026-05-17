@@ -1,6 +1,7 @@
 const express = require("express");
-const fs = require("fs");
+// const fs = require("fs");
 const mysql = require('mysql2');
+const nodemailer = require("nodemailer");
 const cfg = require("./config");
 
 
@@ -13,34 +14,100 @@ if (config.has_errors()) {
 } 
 
 const pool = mysql.createPool({
-  host:     'localhost',
-  user:     config.db_user,
-  password: config.db_pass,
-  database: config.db_name,
-  waitForConnections: true,
-  connectionLimit: 10, // Adjust the limit based on your needs
-  queueLimit: 0
+    host: 'localhost',
+    user: config.db_user,
+    password: config.db_pass,
+    database: config.db_name,
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0
 }).promise();
 
+app.get('/', (request, responce) => {
+    responce.sendFile(__dirname + "/public/index.html");
+});
+
 app.use(express.static("public"));
-// app.get('/test', (request, responce) => {
-//     responce.sendFile(__dirname + "/public/index.html");
-// })
 
 const server = app.listen(config.port, config.host, () => {
     console.log(`App listening ${config.host}:${config.port}`)
 })
 
+async function closeServer() {
+
+    function closeServerOperation() {
+        return new Promise((resolve) => {
+            server.close(() => {
+                resolve();
+            });
+        });
+    }
+
+    await closeServerOperation();
+    console.log('Server stopped.');
+
+    await pool.end();
+    console.log('Database connections closed.');
+}
+
 process.on('SIGINT', () => { 
     console.log('\nSIGINT received: closing server');
-    server.close(() => {
-        console.log('Server stopped. Closing database connections, etc.');
-        pool.end().then(() => {
-            console.log('DB pool closed.');
-        }).finally(() => {
-            process.exit(0);
-        });
+    closeServer().catch(error => {
+        console.log(`[Error] catch on closing the server : ${error.message}`);
+    }).finally(() => {
+        process.exit(0);
     });
+});
+
+function MailSender() {
+    const self = this;    
+    this.verified = false;
+    this.transport = nodemailer.createTransport({
+        host: 'smtp.yandex.ru',
+        port: 465,
+        secure: true,
+        auth: {
+            user: config.notyfy_sender,
+            pass: config.notify_pass
+        }
+    });
+    this.verify = async function() {
+        try {
+            await self.transport.verify();
+            self.verified = true;
+            console.log("Mail verified. Server is ready to send emails");
+        } catch (err) {
+            self.verified = false;
+            console.error("[Error] mail verify failed: ", err);
+        }
+    }
+    this.send = async function() {
+        if (!self.verified) {
+            console.log('[Error] mail sender is not verified');
+            return;
+        } 
+
+        try {
+            const info = {
+                from: `"Profi-Raisen Notify" <${config.notyfy_sender}>`,
+                to: `${config.notify_targets}`,
+                subject: "[Request]",
+                text: "Hello world 123",
+                // html: "<b>Hello world?</b>", //todo: need this?
+            };
+            const result = await self.transport.sendMail(info);
+            console.log("Mail sent: %s", result.messageId);
+        } 
+        catch (err) {
+            console.error("[Error] while mail sending:", err);
+        }
+    }
+};
+
+const mailSender = new MailSender();
+mailSender.send();
+mailSender.verify().then(() => {
+    // mailSender.send(); // todo: for debug
 });
 
 
