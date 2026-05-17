@@ -43,20 +43,23 @@ async function closeServer() {
         });
     }
 
-    await closeServerOperation();
-    console.log('Server stopped.');
+    console.log('\nSIGINT received: closing the server');
 
-    await pool.end();
-    console.log('Database connections closed.');
+    try {
+        await closeServerOperation();
+        console.log('Server closed.');
+
+        await pool.end();
+        console.log('Database connections closed.');
+    }
+    catch (error) {
+        console.log(`[Error] catch on closing the server : ${error.message}`);
+    }
 }
 
-process.on('SIGINT', () => { 
-    console.log('\nSIGINT received: closing server');
-    closeServer().catch(error => {
-        console.log(`[Error] catch on closing the server : ${error.message}`);
-    }).finally(() => {
-        process.exit(0);
-    });
+process.on('SIGINT', async () => { 
+    await closeServer();
+    process.exit(0);
 });
 
 function MailSender() {
@@ -105,7 +108,6 @@ function MailSender() {
 };
 
 const mailSender = new MailSender();
-mailSender.send();
 mailSender.verify().then(() => {
     // mailSender.send(); // todo: for debug
 });
