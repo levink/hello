@@ -1,5 +1,8 @@
 https://mos-pro-justice.21.oml.ru/
 
+use console.warn()
+handle send() errors more accurate
+
 1. Сделать переход к услуге. 
 Блок "услуги" содержит плитку. 
 Сделать переход на страницу с небольшим описание услуги

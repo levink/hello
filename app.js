@@ -23,11 +23,20 @@ const pool = mysql.createPool({
     queueLimit: 0
 }).promise();
 
-app.get('/', (request, responce) => {
-    responce.sendFile(__dirname + "/public/index.html");
-});
-
+app.use(express.json());
 app.use(express.static("public"));
+app.post('/api/ask', express.json({limit: '2kb'}), async (request, responce) => {
+
+    if (!request.body) {
+        return responce.sendStatus(400);
+    }
+
+    //todo: 
+    // - check json
+    // - save to db
+    // - send mail
+    responce.sendStatus(200);
+});
 
 const server = app.listen(config.port, config.host, () => {
     console.log(`App listening ${config.host}:${config.port}`)

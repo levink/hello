@@ -295,24 +295,24 @@
     <section class="ask" id="ask">
         <div class="ask_container">
             <h2 class="section-title">Оставить заявку</h2>
-            <form class="ask_form" onsubmit="handleSubmit(event)">
+            <form class="ask_form" onsubmit="submitAskForm(event)">
                 <div class="form_row">
                     <div class="form_group">
                         <label for="name">Ваше имя</label>
-                        <input type="text" id="name" required placeholder="Иван Иванов" />
+                        <input type="text" id="name" required placeholder="Иван Иванов" maxlength="50" />
                     </div>
                     <div class="form_group">
                         <label for="phone">Телефон</label>
-                        <input type="tel" id="phone" required placeholder="+7 (999) 123-45-67" />
+                        <input type="tel" id="phone" required placeholder="+7 (999) 123-45-67" maxlength="30"/>
                     </div>
                 </div>
                 <div class="form_group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="example@mail.ru" />
+                    <input type="email" id="email" placeholder="example@mail.ru" maxlength="50" />
                 </div>
                 <div class="form_group">
                     <label for="message">Опишите вашу ситуацию</label>
-                    <textarea id="message" placeholder="Кратко опишите вашу проблему. Не более 1000 символов." maxlength="1024"></textarea>
+                    <textarea id="message" placeholder="Кратко опишите вашу проблему. Не более 1000 символов." maxlength="1000"></textarea>
                 </div>
                 <div class="form_checkbox">
                     <input type="checkbox" id="agree" name="agree" value="1" required />
@@ -436,20 +436,48 @@
             document.getElementById('nav').classList.toggle('active');
         }
 
-        function handleSubmit(e) {
+        async function createRequest(item) {
+            const response = await fetch("/api/ask", {
+                method: "POST",
+                headers: { "Accept": "application/json", "Content-Type": "application/json" },
+                body: JSON.stringify(item)
+            });
+        }
+
+        async function submitAskForm(e) {
             e.preventDefault();
+            
             const form = e.target;
             const btn = form.querySelector('button');
-            const originalText = btn.textContent;
+            
+            if (btn.classList.contains('disabled') || 
+                btn.classList.contains('submitted')) {
+                return;
+            }
 
+            btn.classList.add('disabled');
+            const item = {
+                name: form.elements["name"].value.trim(),
+                phone: form.elements["phone"].value.trim(),
+                email: form.elements["email"].value.trim(),
+                message: form.elements["message"].value.trim()
+            };
+
+            await Promise.all([
+                createRequest(item), 
+                new Promise(resolve => setTimeout(resolve, 500))
+            ]);
+
+            const originalText = btn.textContent;
             btn.textContent = 'Отправлено ✓';
-            btn.style.background = '#38a169';
+            btn.classList.add('submitted');
+            btn.classList.remove('disabled');
 
             setTimeout(() => {
                 btn.textContent = originalText;
-                btn.style.background = '';
+                btn.classList.remove('submitted');
                 form.reset();
-            }, 3000);
+            }, 5000);
         }
 
         // Smooth scroll

@@ -39,3 +39,22 @@ app.get('/user/:id', async (req, res) => {
 
 
 app.listen(3000, () => console.log('Server started on port 3000'));
+
+
+//DB async example
+const mysql = require('mysql2/promise');
+
+// Create the pool
+const pool = mysql.createPool({
+  host: 'localhost',
+  user: 'root',
+  database: 'test',
+  waitForConnections: true,
+  connectionLimit: 10
+});
+
+async function queryDatabase() {
+  // The pool allows you to use .query() directly with async/await
+  const [rows] = await pool.query("SELECT * FROM products");
+  return rows;
+}

@@ -12,6 +12,7 @@
     --text_light: #718096;
     --bg: #f1f1f1;
     --white: #ffffff;
+    --green: #38a169;
     --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     --shadow_hover: 0 0px 20px rgba(0, 0, 0, 0.1);
     --form_radius: 6px;
@@ -127,6 +128,12 @@ nav a:hover::after {
 .btn.solid_blue:hover {
     background: var(--primary_light);
     box-shadow: var(--shadow_hover);
+}
+.btn.solid_blue.disabled {
+    background: var(--text_light);
+}
+.btn.solid_blue.submitted {
+    background: var(--green);
 }
 .btn.wire_blue {
     background: transparent;
