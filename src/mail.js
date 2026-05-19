@@ -14,40 +14,27 @@ function MailSender(config) {
     });
     this.verify = async function() {
         self.verified = false;
-        try {
-            await self.transport.verify();
-            self.verified = true;
-        } catch (err) {
-            console.warn("[Error] mail verify failed: ", err);
-        }
+        await self.transport.verify();
+        self.verified = true;
+        console.log("MailSender verified");
     }
     this.send = async function(mail_to, subject, text) {
         if (!self.verified) {
-            console.warn('[Error] mail sender is not verified');
-            return;
+            throw new Error("Mail sender is not verified");
         } 
 
-        try {
-            const item = {
+        const item = {
                 from: `"Profi-Raisen Notify" <${config.sender}>`,
                 to: mail_to,
                 subject: subject,
-                text: text,
-                // html: "<b>Hello world?</b>", //todo: need this?
-            };
-            const result = await self.transport.sendMail(item);
-            console.log("Mail sent: %s", result.messageId);
-        } 
-        catch (err) {
-            console.warn("[Error] while mail sending:", err);
-        }
+                text: text
+        };
+        const result = await self.transport.sendMail(item);
+        //todo: research result capabilities
+        console.log("Mail sent: %s", result.messageId);
     }
 };
 
 export function createSender(config) {
-    const item = new MailSender(config);
-    item.verify().then(() => {
-        console.log("Mail verified. Server is ready to send emails");
-    });
-    return item;
+    return new MailSender(config);
 }

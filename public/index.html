@@ -295,24 +295,24 @@
     <section class="ask" id="ask">
         <div class="ask_container">
             <h2 class="section-title">Оставить заявку</h2>
-            <form class="ask_form" onsubmit="submitAskForm(event)">
+            <form class="ask_form" id="ask_form" onsubmit="submitAskForm(event)">
                 <div class="form_row">
                     <div class="form_group">
                         <label for="name">Ваше имя</label>
-                        <input type="text" id="name" required placeholder="Иван Иванов" maxlength="80" />
+                        <input type="text" id="name" placeholder="Иван Иванов" maxlength="80" autocomplete="name" required />
                     </div>
                     <div class="form_group">
                         <label for="phone">Телефон</label>
-                        <input type="tel" id="phone" required placeholder="+7 (999) 123-45-67" maxlength="20"/>
+                        <input type="tel" id="phone" placeholder="+7 (999) 123-45-67" maxlength="20" oninput="validateBoth()" autocomplete="tel" required />
                     </div>
                 </div>
                 <div class="form_group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="example@mail.ru" maxlength="255" />
+                    <input type="email" id="email" placeholder="example@mail.ru" maxlength="255" oninput="validateBoth()" autocomplete="email" />
                 </div>
                 <div class="form_group">
                     <label for="message">Опишите вашу ситуацию</label>
-                    <textarea id="message" placeholder="Кратко опишите вашу проблему. Не более 1000 символов." maxlength="1000"></textarea>
+                    <textarea id="message" placeholder="Кратко опишите вашу проблему. Не более 1000 символов." maxlength="1000" autocomplete="off" required ></textarea>
                 </div>
                 <div class="form_checkbox">
                     <input type="checkbox" id="agree" name="agree" value="1" required />
@@ -491,6 +491,17 @@
                 document.getElementById('nav').classList.remove('active');
             });
         });
+
+        //expect one filled value from [phone, email]
+        const form = document.forms['ask_form'];
+        function validateBoth() {
+            const filledAny = 
+                form.phone.value.trim() !== "" || 
+                form.email.value.trim() !== "";
+
+            phone.required = !filledAny;
+            email.required = !filledAny;
+        }
 
     </script>
 </body>

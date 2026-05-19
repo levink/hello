@@ -1,34 +1,34 @@
 const express = require("express");
 // const fs = require("fs");
-const mysql = require('mysql2');
 const cfg = require("./src/config");
 const mail = require("./src/mail");
+const db = require("./src/db");
 
 const app = express();
 const config = cfg.parse(process.argv);
 
 if (config.has_errors()) {
-    console.warn(`[Error] config is not ready. Stop program`);
+    console.warn(`[Error] config is not ready.\nStop program`);
     process.exit(0);
-    return;
 } 
+
+db.open({
+    user: config.db_user,
+    password: config.db_pass,
+    database: config.db_name,
+}).catch(error => {
+    console.warn(`[Error] can not open db: ${error}.\nStop program`);
+    process.exit(0);    
+});
 
 const mailSender = mail.createSender({
     sender: config.notyfy_sender,
     password: config.notify_pass
 });
-
-const dbPool = mysql.createPool({
-    host: 'localhost',
-    user: config.db_user,
-    password: config.db_pass,
-    database: config.db_name,
-    namedPlaceholders: true,
-    waitForConnections: true,
-    connectionLimit: 10,
-    queueLimit: 0,
-}).promise();
-
+mailSender.verify().catch(error => {
+    console.warn(`[Error] mail verify failed: ${error}.\nStop program`);
+    process.exit(0);
+});
 
 app.use(express.json());
 app.use(express.static("public"));
@@ -38,42 +38,24 @@ app.post('/api/ask', express.json({limit: '2kb'}), async (request, responce) => 
         return responce.sendStatus(400);
     }
 
-    //todo: 
-    // - check json
-    // - save to db
-    // - send mail
-    var ok = false;
     try {
-        const id = await db_insertRequest({
-            name: 'Bob Dylan', 
-            phone: '+7 (999) 123-45-67', 
-            email: null, 
-            message: 'Call me please!'
-        });
-        // await mailSender.send(config.notify_targets, "[Test] Hello", "Hello world!");
-        ok = (id > 0);
+        //todo: check json
+        const row = db.toRow(request.body, request.ip);
+        row.id = await db.insertRequest(row);
+        console.log(`New request created: id=${row.id} from '${row.ip}'`);
+
+        // todo: refactor this?
+        var contact = [row.name, row.phone, row.email].filter(item => item != null).join(", ");
+        var title = `[Заявка, ID=${row.id}] ${contact}`;
+        await mailSender.send(config.notify_targets, title, row.message);
+
+        responce.sendStatus(200);
     } 
     catch (error) {
-        console.warn(`[Error] catch on create request: ${error.message}`);
+        console.warn(`[Error] /api/ask: ${error}`);
+        responce.sendStatus(400);
     }
-
-    responce.sendStatus(ok ? 200 : 400);
 });
-
-async function db_insertRequest(item) {
-    try {
-        const sql = `INSERT INTO 
-            request (name, phone, email, message)
-            VALUES (:name, :phone, :email, :message);`;
-        const [result] = await dbPool.query(sql, item);
-        return result.insertId;
-    } 
-    catch (error) {
-        console.warn(`[Error] on db_insertRequest(): ${error}`);
-    }
-    
-    return -1;
-}
 
 const server = app.listen(config.port, config.host, () => {
     console.log(`App listening ${config.host}:${config.port}`)
@@ -82,10 +64,8 @@ const server = app.listen(config.port, config.host, () => {
 async function closeServer() {
 
     async function closeServerOperation() {
-        return new Promise((resolve) => {
-            server.close(() => {
-                resolve();
-            });
+        return new Promise(resolve => {
+            server.close(resolve);
         });
     }
 
@@ -95,7 +75,7 @@ async function closeServer() {
         await closeServerOperation();
         console.log('Server closed.');
 
-        await dbPool.end();
+        await db.close();
         console.log('Database connections closed.');
     }
     catch (error) {
