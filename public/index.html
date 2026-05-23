@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profi-raizen - Юридические услуги</title>
     <link href="css/styles.css" rel="stylesheet" type="text/css">
-    <link rel="shortcut icon" href="#">
+    <link rel="icon" href="#">
 </head>
 <body>
     <header>
@@ -299,20 +299,20 @@
                 <div class="form_row">
                     <div class="form_group">
                         <label for="name">Ваше имя</label>
-                        <input type="text" id="name" placeholder="Иван Иванов" maxlength="80" autocomplete="name" required />
+                        <input type="text" id="name" name="name" placeholder="Иван Иванов" maxlength="80" autocomplete="name" required />
                     </div>
                     <div class="form_group">
                         <label for="phone">Телефон</label>
-                        <input type="tel" id="phone" placeholder="+7 (999) 123-45-67" maxlength="20" oninput="validateBoth()" autocomplete="tel" required />
+                        <input type="tel" id="phone" name="phone" placeholder="+7 (999) 123-45-67" maxlength="20" oninput="validateBoth()" autocomplete="tel" required />
                     </div>
                 </div>
                 <div class="form_group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="example@mail.ru" maxlength="255" oninput="validateBoth()" autocomplete="email" />
+                    <input type="email" id="email" name="email" placeholder="example@mail.ru" maxlength="255" oninput="validateBoth()" autocomplete="email" />
                 </div>
                 <div class="form_group">
                     <label for="message">Опишите вашу ситуацию</label>
-                    <textarea id="message" placeholder="Кратко опишите вашу проблему. Не более 1000 символов." maxlength="1000" autocomplete="off" required ></textarea>
+                    <textarea id="message" name="message" placeholder="Кратко опишите вашу проблему. Не более 1000 символов." maxlength="1000" autocomplete="off" required ></textarea>
                 </div>
                 <div class="form_checkbox">
                     <input type="checkbox" id="agree" name="agree" value="1" required />
@@ -337,7 +337,7 @@
                     решений. Каждый заслуживает надежной правовой поддержки в
                     защите своих прав и интересов.
                 </p>
-                <a href="#company_details" class="btn wire_blue">Подробнее</a>
+                <a href="/public/about.html" class="btn wire_blue">Подробнее</a>
             </div>
             <div class="stats_grid">
                 <div class="stat_item">
@@ -437,10 +437,11 @@
         }
 
         async function createRequest(item) {
-            const response = await fetch("/api/ask", {
+
+            const response = await fetch("/public/api/ask.php", {
                 method: "POST",
-                headers: { "Accept": "application/json", "Content-Type": "application/json" },
-                body: JSON.stringify(item)
+                headers: { "Accept": "application/json" },
+                body: item
             });
         }
 
@@ -456,13 +457,8 @@
             }
 
             btn.classList.add('disabled');
-            const item = {
-                name: form.elements["name"].value.trim(),
-                phone: form.elements["phone"].value.trim(),
-                email: form.elements["email"].value.trim(),
-                message: form.elements["message"].value.trim()
-            };
 
+            const item = new FormData(form);
             await Promise.all([
                 createRequest(item), 
                 new Promise(resolve => setTimeout(resolve, 500))
@@ -476,8 +472,8 @@
             setTimeout(() => {
                 btn.textContent = originalText;
                 btn.classList.remove('submitted');
-                form.reset();
-            }, 5000);
+                // form.reset();
+            }, 500); //todo: 5000 after debug
         }
 
         // Smooth scroll

@@ -17,7 +17,7 @@ db.open({
     password: config.db_pass,
     database: config.db_name,
 }).catch(error => {
-    console.warn(`[Error] can not open db: ${error}.\nStop program`);
+    console.warn(`[Error] can not connect to DB: ${error}.\nStop program`);
     process.exit(0);    
 });
 
