@@ -1,8 +1,8 @@
 const express = require("express");
 // const fs = require("fs");
-const cfg = require("./src/config");
-const mail = require("./src/mail");
-const db = require("./src/db");
+const cfg = require("./config");
+const mail = require("./mail");
+const db = require("./db");
 
 const app = express();
 const config = cfg.parse(process.argv);

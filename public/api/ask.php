@@ -3,11 +3,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 require '../../vendor/autoload.php';
-
-$filePath = realpath($_SERVER['DOCUMENT_ROOT'] . "/../../profi.ini");
-$settings = parse_ini_file($filePath, true);
-define('SETTINGS', $settings);
-unset($settings);
+require '../settings.php';
 
 class Ask {
     
@@ -55,14 +51,25 @@ function insertRow(array $config, Ask $ask) {
     return $ok;
 }
 
+class Mail {
+    static function createSubject(Ask $ask) {
+        $test = array_filter([$ask->phone, $ask->email]);
+        $contacts = implode(', ', $test);
+        return "[Заявка, ID={$ask->id}] {$ask->name}, {$contacts}";
+    }
+    static function createBody(Ask $ask) {
+        return $ask->message;
+    }
+};
+
 function sendMail(array $config, Ask $ask) {
     $mail = new PHPMailer(true);
     $ok = false;
 
     try {
         $mail->IsSMTP();
-        $mail->SMTPAuth     = true;                         // Enable SMTP authentication
-        $mail->SMTPSecure   = PHPMailer::ENCRYPTION_SMTPS;  // Enable implicit TLS
+        $mail->SMTPAuth     = true;
+        $mail->SMTPSecure   = PHPMailer::ENCRYPTION_SMTPS;
         $mail->CharSet      = 'UTF-8';
         $mail->Host         = $config['host'];
         $mail->Port         = $config['port'];
@@ -72,10 +79,8 @@ function sendMail(array $config, Ask $ask) {
         $mail->isHTML(false);
         $mail->setFrom($config['sender_mail'], "Profi-Raisen Notify");
         $mail->addAddress($config['target']);
-
-        //todo: get info from $ask
-        $mail->Subject = "[Заявка, ID=123]";
-        $mail->Body    = 'Test';
+        $mail->Subject = Mail::createSubject($ask);
+        $mail->Body    = Mail::createBody($ask);
 
         $mail->send();
         $ok = true;
