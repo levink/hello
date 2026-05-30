@@ -18,6 +18,10 @@
                 <span class="logo_text">Profi<span>Raizen</span></span>
             </a>
             <a href="tel:+74990001122" id="" class="phone">+7 (499) 000-11-22</a>
+            <!-- <a href="https://max.ru/u/f9LHodD0cOIM8lA64WkAAXvX6Cbx1yPcT82kEt0hY8vClFCY5t8jXzOfRgE" target="_blank">
+                <img src="ССЫЛКА_НА_ИКОНКУ" alt="Написать в MAX" width="28" height="28">
+                Написать в MAX
+            </a> -->
             <nav id="nav">
                 <a href="#services">УСЛУГИ</a>
                 <a href="#about">О НАС</a>
@@ -34,25 +38,22 @@
     </header>
 
     <section class="hero" id="hero">
-        <div class="hero_container">
-            <div class="hero_content">
-                <h1>Ваше право — наша <span>профессия</span></h1>
-                <p>
-                    Юридическая помощь частным лицам и бизнесу.
-                    Защитим ваши интересы и поможем найти выход из любой правовой
-                    ситуации.
-                </p>
-                <a href="#ask" class="btn solid_blue">Задать вопрос</a>
-                <!-- <a href="#services" class="btn btn_outline">Наши услуги</a> -->
-            </div>
-            <div class="hero_image">
-                <img src="img/hero005.png" alt="ProfiRaizen" />
-            </div>
+        <div>
+            <h1>Ваше право — наша <span>профессия</span></h1>
+            <p>
+                Юридическая помощь частным лицам и бизнесу.
+                Защитим ваши интересы и поможем найти выход из любой правовой
+                ситуации.
+            </p>
+            <a href="#ask" class="btn solid_blue">Задать вопрос</a>
+        </div>
+        <div class="hero_image">
+            <img src="img/hero005.png" alt="ProfiRaizen" />
         </div>
     </section>
 
     <section class="services" id="services">
-        <h2 class="section-title">Услуги</h2>
+        <h2 class="section_title">Услуги</h2>
         <div class="services_container">
             
             <div class="services_tabs">
@@ -198,9 +199,9 @@
     </section>
     
     <section class="price" id="price">
-        <h2 class="section-title">Стоимость</h2>
-        <div class="price_container">
-            <p class="section-subtitle">
+        <h2 class="section_title">Стоимость</h2>
+        <div>
+            <p class="price_subtitle">
                 Стоимость услуг, указываемая в договоре - является окончательной
             </p>
             <table>
@@ -293,120 +294,108 @@
     </section>
 
     <section class="ask" id="ask">
-        <div class="ask_container">
-            <h2 class="section-title">Оставить заявку</h2>
-            <form class="ask_form" id="ask_form" onsubmit="submitAskForm(event)">
-                <div class="form_row">
-                    <div class="form_group">
-                        <label for="name">Ваше имя</label>
-                        <input type="text" id="name" name="name" placeholder="Иван Иванов" maxlength="80" autocomplete="name" required />
-                    </div>
-                    <div class="form_group">
-                        <label for="phone">Телефон</label>
-                        <input type="tel" id="phone" name="phone" placeholder="+7 (999) 123-45-67" maxlength="20" oninput="validateBoth()" autocomplete="tel" required />
-                    </div>
+        <h2 class="section_title">Оставить заявку</h2>
+        <form class="ask_form" id="ask_form" onsubmit="submitAskForm(event)">
+            <div class="form_row">
+                <div class="form_group">
+                    <label for="name">Ваше имя</label>
+                    <input type="text" id="name" name="name" placeholder="Иван Иванов" maxlength="80" autocomplete="name" required />
                 </div>
                 <div class="form_group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="example@mail.ru" maxlength="255" oninput="validateBoth()" autocomplete="email" />
+                    <label for="phone">Телефон</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+7 (999) 123-45-67" maxlength="20" oninput="validateBoth()" autocomplete="tel" required />
                 </div>
-                <div class="form_group">
-                    <label for="message">Опишите вашу ситуацию</label>
-                    <textarea id="message" name="message" placeholder="Кратко опишите вашу проблему. Не более 1000 символов." maxlength="1000" autocomplete="off" required ></textarea>
-                </div>
-                <div class="form_checkbox">
-                    <input type="checkbox" id="agree" name="agree" value="1" required />
-                    <label for="agree">Даю согласие на обработку <a href="#">персональных данных</a></label>
-                </div>
-                <button type="submit" class="btn solid_blue">Отправить заявку</button>
-            </form>
-        </div>
+            </div>
+            <div class="form_group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="example@mail.ru" maxlength="255" oninput="validateBoth()" autocomplete="email" />
+            </div>
+            <div class="form_group">
+                <label for="message">Опишите вашу ситуацию</label>
+                <textarea id="message" name="message" placeholder="Кратко опишите вашу проблему. Не более 1000 символов." maxlength="1000" autocomplete="off" required ></textarea>
+            </div>
+            <div class="form_checkbox">
+                <input type="checkbox" id="agree" name="agree" value="1" required />
+                <label for="agree">Даю согласие на обработку <a href="#">персональных данных</a></label>
+            </div>
+            <button type="submit" class="btn solid_blue">Отправить заявку</button>
+        </form>
     </section>
 
     <section class="about" id="about">
-        <div class="about_container">   
-            <div class="about_title">
-                <h1>О нас</h1>
-                <p>Для чего мы оказываем юридические услуги</p>
-                <p>
-                    Имея многолетний опыт в юриспруденции, прежде всего, в
-                    защите прав и интересов в суде, наша команда сосредоточена
-                    на оказании качественных юридических услуг и успешном
-                    разрешении споров в различных отраслях права. Мы достигаем
-                    это с помощью практических и инновационных юридических
-                    решений. Каждый заслуживает надежной правовой поддержки в
-                    защите своих прав и интересов.
-                </p>
-                <a href="/about.html" class="btn wire_blue">Подробнее</a>
-            </div>
-            <div class="stats_grid">
-                <div class="stat_item">
-                    <h2>15</h2><p>ЛЕТ НА РЫНКЕ</p>
-                </div>
-                <div class="stat_item">
-                    <h2>20</h2><p>СОТРУДНИКОВ</p>
-                </div>
-                <div class="stat_item">
-                    <h2>97%</h2><p>УСПЕШНЫХ ДЕЛ</p>
-                </div>
-            </div>
+        <div class="about_text">
+            <h1>О нас</h1>
+            <p>Для чего мы оказываем юридические услуги</p>
+            <p>
+                Имея многолетний опыт в юриспруденции, прежде всего, в
+                защите прав и интересов в суде, наша команда сосредоточена
+                на оказании качественных юридических услуг и успешном
+                разрешении споров в различных отраслях права. Мы достигаем
+                это с помощью практических и инновационных юридических
+                решений. Каждый заслуживает надежной правовой поддержки в
+                защите своих прав и интересов.
+            </p>
+            <a href="/about.html" class="btn wire_blue">Подробнее</a>
+        </div>
+        <div class="about_stats">
+            <div><h4>15</h4><p>ЛЕТ НА РЫНКЕ</p></div>
+            <div><h4>20</h4><p>СОТРУДНИКОВ</p></div>
+            <div><h4>97%</h4><p>УСПЕШНЫХ ДЕЛ</p></div>
         </div>
     </section>
 
     <section class="contact" id="contact">
-        <div class="contact_container">
-            <h1>Контакты</h1>
-            <div class="contact_grid">
-                <div>
-                    <div class="contact_item phone">
-                        <span class="icon">
-                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0 0 122.88 122.27">
-                                <path d="M33.84,50.25c4.13,7.45,8.89,14.6,15.07,21.12c6.2,6.56,13.91,12.53,23.89,17.63c0.74,0.36,1.44,0.36,2.07,0.11 c0.95-0.36,1.92-1.15,2.87-2.1c0.74-0.74,1.66-1.92,2.62-3.21c3.84-5.05,8.59-11.32,15.3-8.18c0.15,0.07,0.26,0.15,0.41,0.21 l22.38,12.87c0.07,0.04,0.15,0.11,0.21,0.15c2.95,2.03,4.17,5.16,4.2,8.71c0,3.61-1.33,7.67-3.28,11.1 c-2.58,4.53-6.38,7.53-10.76,9.51c-4.17,1.92-8.81,2.95-13.27,3.61c-7,1.03-13.56,0.37-20.27-1.69 c-6.56-2.03-13.17-5.38-20.39-9.84l-0.53-0.34c-3.31-2.07-6.89-4.28-10.4-6.89C31.12,93.32,18.03,79.31,9.5,63.89 C2.35,50.95-1.55,36.98,0.58,23.67c1.18-7.3,4.31-13.94,9.77-18.32c4.76-3.84,11.17-5.94,19.47-5.2c0.95,0.07,1.8,0.62,2.25,1.44 l14.35,24.26c2.1,2.72,2.36,5.42,1.21,8.12c-0.95,2.21-2.87,4.25-5.49,6.15c-0.77,0.66-1.69,1.33-2.66,2.03 c-3.21,2.33-6.86,5.02-5.61,8.18L33.84,50.25L33.84,50.25L33.84,50.25z"/>
-                            </svg>
-                        </span>
-                        <div>
-                            <a href="tel:+74990001122">+7 (499) 000-11-22</a>
-                        </div>
-                    </div>
-
-                    <div class="contact_item">
-                        <span class="icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" width="40" height="40" viewBox="0 0 40 40">
-                                <path d="M20-.001c-11.044 0-20 8.955-20 20s8.956 20 20 20c11.046 0 20-8.955 20-20s-8.954-20-20-20zm7.355 27.849l-.583.583a1.337 1.337 0 0 1-1.814.047l-7.535-6.59c-.514-.458-.902-1.397-.869-2.084l.699-11.89a1.335 1.335 0 0 1 1.317-1.248h.821c.689 0 1.279.56 1.312 1.246l.572 9.89c.035.688.437 1.667.892 2.182l5.241 6.047a1.345 1.345 0 0 1-.053 1.817z" fill-rule="evenodd"></path>
-                            </svg>
-                        </span>
-                        <div>
-                            <h3>Режим работы</h3>
-                            <div>Пн-Пт: 10:00 - 20:00<br/>Суббота: 11:00 - 17:00</div>
-                        </div>
-                    </div>
-
-                    <div class="contact_item">
-                        <span class="icon">
-                           <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" width="28" height="40" viewBox="0 0 28 40" >
-                                <path d="M14-.001C6.28-.001 0 6.24 0 13.913c0 3.646 2.284 9.114 6.787 16.253a126.295 126.295 0 0 0 6.731 9.6.614.614 0 0 0 .482.233h.001a.614.614 0 0 0 .483-.235c.033-.044 3.404-4.371 6.729-9.664C25.717 22.933 28 17.486 28 13.913 28 6.24 21.72-.001 14-.001zm0 20.623c-3.723 0-6.751-3.01-6.751-6.709 0-3.7 3.028-6.71 6.751-6.71 3.723 0 6.751 3.01 6.751 6.71 0 3.699-3.028 6.709-6.751 6.709z" fill-rule="evenodd"></path>
-                            </svg>
-                        </span>
-                        <div>
-                            <h3>г. Домодедово</h3>
-                            <div>улица Гагарина, 37<br/>ТЦ Форус, офис 407</div>
-                        </div>
-                    </div>
-
-                    <div class="contact_item">
-                        <span class="icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" width="40" height="27" viewBox="0 0 40 27">
-                                <path d="M36.855 26.999H3.144A3.138 3.138 0 0 1 0 23.868V7.231c0-.319.349-.517.625-.355L19.256 17.83a1.475 1.475 0 0 0 1.488 0L39.375 6.876a.415.415 0 0 1 .625.355v16.637a3.138 3.138 0 0 1-3.145 3.131zM20.827 14.395a1.628 1.628 0 0 1-1.654 0L.214 3.25a.41.41 0 0 1-.203-.385A3.144 3.144 0 0 1 3.144-.001h33.711a3.144 3.144 0 0 1 3.134 2.866.41.41 0 0 1-.203.385L20.827 14.395z" fill-rule="evenodd"></path>
-                            </svg>
-                        </span>
-                        <div>
-                            <h3><a href="mailto:test@mail.ru">test@mail.ru</a></h3> 
-                        </div>
+        <h1>Контакты</h1>
+        <div class="contact_grid">
+            <div>
+                <div class="contact_item phone">
+                    <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0 0 122.88 122.27">
+                            <path d="M33.84,50.25c4.13,7.45,8.89,14.6,15.07,21.12c6.2,6.56,13.91,12.53,23.89,17.63c0.74,0.36,1.44,0.36,2.07,0.11 c0.95-0.36,1.92-1.15,2.87-2.1c0.74-0.74,1.66-1.92,2.62-3.21c3.84-5.05,8.59-11.32,15.3-8.18c0.15,0.07,0.26,0.15,0.41,0.21 l22.38,12.87c0.07,0.04,0.15,0.11,0.21,0.15c2.95,2.03,4.17,5.16,4.2,8.71c0,3.61-1.33,7.67-3.28,11.1 c-2.58,4.53-6.38,7.53-10.76,9.51c-4.17,1.92-8.81,2.95-13.27,3.61c-7,1.03-13.56,0.37-20.27-1.69 c-6.56-2.03-13.17-5.38-20.39-9.84l-0.53-0.34c-3.31-2.07-6.89-4.28-10.4-6.89C31.12,93.32,18.03,79.31,9.5,63.89 C2.35,50.95-1.55,36.98,0.58,23.67c1.18-7.3,4.31-13.94,9.77-18.32c4.76-3.84,11.17-5.94,19.47-5.2c0.95,0.07,1.8,0.62,2.25,1.44 l14.35,24.26c2.1,2.72,2.36,5.42,1.21,8.12c-0.95,2.21-2.87,4.25-5.49,6.15c-0.77,0.66-1.69,1.33-2.66,2.03 c-3.21,2.33-6.86,5.02-5.61,8.18L33.84,50.25L33.84,50.25L33.84,50.25z"/>
+                        </svg>
+                    </span>
+                    <div>
+                        <a href="tel:+74990001122">+7 (499) 000-11-22</a>
                     </div>
                 </div>
-                <div class="map_container">
-                    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A0b75a2b8070eb1d704ae8e52048ee2e973ce816071ed5bfa4811996f9d9c57f5&amp;width=100%&amp;height=100%&amp;lang=ru_RU&amp;scroll=true"></script>
+
+                <div class="contact_item">
+                    <span class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" width="40" height="40" viewBox="0 0 40 40">
+                            <path d="M20-.001c-11.044 0-20 8.955-20 20s8.956 20 20 20c11.046 0 20-8.955 20-20s-8.954-20-20-20zm7.355 27.849l-.583.583a1.337 1.337 0 0 1-1.814.047l-7.535-6.59c-.514-.458-.902-1.397-.869-2.084l.699-11.89a1.335 1.335 0 0 1 1.317-1.248h.821c.689 0 1.279.56 1.312 1.246l.572 9.89c.035.688.437 1.667.892 2.182l5.241 6.047a1.345 1.345 0 0 1-.053 1.817z" fill-rule="evenodd"></path>
+                        </svg>
+                    </span>
+                    <div>
+                        <h3>Режим работы</h3>
+                        <div>Пн-Пт: 10:00 - 20:00<br/>Суббота: 11:00 - 17:00</div>
+                    </div>
                 </div>
+
+                <div class="contact_item">
+                    <span class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" width="28" height="40" viewBox="0 0 28 40" >
+                            <path d="M14-.001C6.28-.001 0 6.24 0 13.913c0 3.646 2.284 9.114 6.787 16.253a126.295 126.295 0 0 0 6.731 9.6.614.614 0 0 0 .482.233h.001a.614.614 0 0 0 .483-.235c.033-.044 3.404-4.371 6.729-9.664C25.717 22.933 28 17.486 28 13.913 28 6.24 21.72-.001 14-.001zm0 20.623c-3.723 0-6.751-3.01-6.751-6.709 0-3.7 3.028-6.71 6.751-6.71 3.723 0 6.751 3.01 6.751 6.71 0 3.699-3.028 6.709-6.751 6.709z" fill-rule="evenodd"></path>
+                        </svg>
+                    </span>
+                    <div>
+                        <h3>г. Домодедово</h3>
+                        <div>улица Гагарина, 37<br/>ТЦ Форус, офис 407</div>
+                    </div>
+                </div>
+
+                <div class="contact_item">
+                    <span class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" width="40" height="27" viewBox="0 0 40 27">
+                            <path d="M36.855 26.999H3.144A3.138 3.138 0 0 1 0 23.868V7.231c0-.319.349-.517.625-.355L19.256 17.83a1.475 1.475 0 0 0 1.488 0L39.375 6.876a.415.415 0 0 1 .625.355v16.637a3.138 3.138 0 0 1-3.145 3.131zM20.827 14.395a1.628 1.628 0 0 1-1.654 0L.214 3.25a.41.41 0 0 1-.203-.385A3.144 3.144 0 0 1 3.144-.001h33.711a3.144 3.144 0 0 1 3.134 2.866.41.41 0 0 1-.203.385L20.827 14.395z" fill-rule="evenodd"></path>
+                        </svg>
+                    </span>
+                    <div>
+                        <h3><a href="mailto:test@mail.ru">test@mail.ru</a></h3> 
+                    </div>
+                </div>
+            </div>
+            <div class="map_container">
+                <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A0b75a2b8070eb1d704ae8e52048ee2e973ce816071ed5bfa4811996f9d9c57f5&amp;width=100%&amp;height=100%&amp;lang=ru_RU&amp;scroll=true"></script>
             </div>
         </div>
     </section>
