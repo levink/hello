@@ -1,0 +1,64 @@
+@media (max-width: 768px) {
+    body {
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+    .header_container .logo_text {
+        font-size: 1.2rem;
+    }
+    .header_container .phone {
+        display:none;
+    }
+    .header_container nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 50%;
+        flex-direction: column;
+        gap: 1rem;
+        box-shadow: var(--shadow);
+        background: var(--white);
+        padding: 1rem 2rem;
+    }
+    .header_container nav.active {
+        display: flex;
+    }
+    .header_container .menu_button {
+        display: block;
+    }
+
+    section {
+        padding: 2rem 1rem;
+    }
+    section h1 {
+        font-size: 2rem;
+    }
+    section h2 {
+        font-size: 1.5rem;
+    }
+    section h3 {
+        font-size: 1rem;
+    }
+
+    .service_tab {
+        padding: 1rem 0rem;
+        font-size: 1rem;
+    }
+    .service_grid {
+        gap: 0rem;
+        padding: 0rem;
+    }
+    .service_card {
+        padding: 1rem;
+        font-size: 0.75rem;
+    }
+    .service_card .circle {
+        width: 0.75rem;
+        height: 0.75rem;
+    }
+    .service_card p {
+        padding-left: 1.75rem;
+    }
+
+}
