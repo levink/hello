@@ -79,11 +79,12 @@
     }
     .about_stats h4 {
         font-weight: 500;
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
     .about_stats p {
         font-weight: 400;
         padding-bottom: 2.5rem;
+        font-size: 0.65rem;
     }
     .about_text {
         text-align: center;

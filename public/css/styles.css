@@ -484,8 +484,10 @@ section h3 {
     font-weight: 700;
     font-size: 4rem;
 }
-.about_stats p {
+.about_stats.vertical p {
     min-width: 10rem;
+}
+.about_stats p {
     color: var(--text_light);
     font-weight: 500;
     font-size: 1rem;
