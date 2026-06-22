@@ -29,7 +29,7 @@
     }
 
     section {
-        padding: 2rem 1rem;
+        padding: 2rem 2rem;
     }
     section h1 {
         font-size: 2rem;
@@ -41,6 +41,9 @@
         font-size: 1rem;
     }
 
+    .hero .btn {
+        min-width: 80%;
+    }
     .service_tab {
         padding: 1rem 0rem;
         font-size: 1rem;
@@ -61,4 +64,36 @@
         padding-left: 1.75rem;
     }
 
+    .about {
+        gap: 0;
+    }
+    .about_stats.horizontal {
+        display: flex;
+    }
+    .about_stats.vertical {
+        display: none;
+    }
+    .about_stats > div {
+        flex: 1;
+        width: 0;
+    }
+    .about_stats h4 {
+        font-weight: 500;
+        font-size: 3rem;
+    }
+    .about_stats p {
+        font-weight: 400;
+        padding-bottom: 2.5rem;
+    }
+    .about_text {
+        text-align: center;
+    }
+    .about_text > p {
+        margin-bottom: 2rem;
+        padding: 0 1rem;
+        text-align: justify;
+    }
+    .about .btn {
+        width: 70%;
+    }
 }

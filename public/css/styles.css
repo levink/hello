@@ -26,7 +26,7 @@ body {
     background: var(--bg);
     color: var(--text_light);
     font-size: 1.2rem;
-    line-height: 1.6;
+    line-height: 1.7;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -463,19 +463,21 @@ section h3 {
     gap: 6rem;
     color: var(--text_light);
 }
-.about_text h1 {
-    margin-bottom: 1rem;
-}
-.about_text p {
-    margin-bottom: 3rem;
-    font-size: 1.2rem;
-    line-height: 1.7em;
+.about_text > p {
+    margin-bottom: 2rem;
 }
 .about_stats {
-    display: flex;
+    text-align: center;
+}
+.about_stats.vertical {
+    display:flex;
     flex-direction: column;
     gap: 2rem;
-    text-align: center;
+}
+.about_stats.horizontal {
+    display: none;
+    flex-direction: row;
+    gap: 0rem;
 }
 .about_stats h4 {
     color: var(--accent);
@@ -489,10 +491,12 @@ section h3 {
     font-size: 1rem;
     letter-spacing: 0.5px;
 }
-
 /* #endregion About  */
 
 /* #region Contact */
+#contact {
+    display: none;
+}
 .contact {
     padding-bottom: 4rem;
 }
