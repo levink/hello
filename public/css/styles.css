@@ -492,9 +492,6 @@ section h3 {
 /* #endregion About  */
 
 /* #region Contact */
-#contact {
-    display: none;
-}
 .contact {
     padding-bottom: 4rem;
 }
@@ -503,7 +500,7 @@ section h3 {
 }
 .contact_grid {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 20rem auto;
     align-items: flex-start;
     gap: 3rem;
 }
@@ -540,7 +537,7 @@ section h3 {
     margin-top: 8px;
 }
 .map_container {
-    height: 400px;
+    height: 100%;
 }
 
 /* #endregion Contact */
