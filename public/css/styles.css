@@ -291,15 +291,13 @@ section h3 {
     border-radius: 0.2rem;
     padding: 2rem;
 }
-.service_card:hover {
-    box-shadow: var(--shadow_hover);
-    border-color: var(--primary_light);
-}
 .service_card .title {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding-bottom: 0.5rem;
+}
+.service_card .details {
+    padding-top: 0.5rem;
 }
 .service_card .circle {
     border-radius: 50%; 
@@ -310,7 +308,7 @@ section h3 {
 .service_card h3 {
     padding-left: 1rem;
 }
-.service_card p {
+.service_card .details {
     padding-left: 2rem;
 }
 

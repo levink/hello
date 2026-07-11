@@ -29,7 +29,7 @@
     }
 
     section {
-        padding: 2rem 2rem;
+        padding: 2rem 1rem;
     }
     section h1 {
         font-size: 2rem;
@@ -45,8 +45,8 @@
         min-width: 80%;
     }
     .service_tab {
-        padding: 1rem 0rem;
-        font-size: 1rem;
+        padding: 1rem 1rem;
+        font-size: 0.8rem;
     }
     .service_grid {
         gap: 0rem;
@@ -55,13 +55,20 @@
     .service_card {
         padding: 1rem;
         font-size: 0.75rem;
+        border-width: 0px 0px 1px 0px;
+        border-radius: 0px;
+    }
+    .service_card:not(:last-child) {
+        border-bottom: 1px solid var(--bg);
     }
     .service_card .circle {
         width: 0.75rem;
         height: 0.75rem;
+        display: none;
     }
-    .service_card p {
-        padding-left: 1.75rem;
+    .service_card .details {
+        padding-left: 1rem;
+        display:none;
     }
 
     .about {

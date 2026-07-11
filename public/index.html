@@ -29,7 +29,7 @@
                 <a href="#contact">КОНТАКТЫ</a>
             </nav>
             <button class="menu_button" onclick="toggleMenu()">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2">
                     <line x1="3" y1="6" x2="21" y2="6" />
                     <line x1="3" y1="12" x2="21" y2="12" />
                     <line x1="3" y1="18" x2="21" y2="18" />
@@ -54,12 +54,11 @@
     </section>
 
     <section class="services" id="services">
-        <h2 class="section_title">Услуги</h2>
         <div class="services_container">
             
             <div class="services_tabs">
-                <div class="service_tab active" onclick="toggleTab()">Юридические</div>
-                <div class="service_tab" onclick="toggleTab()">Бухгалтерские</div>
+                <div class="service_tab active" onclick="toggleTab()">Юридические услуги</div>
+                <div class="service_tab" onclick="toggleTab()">Бухгалтерские услуги</div>
             </div>
             
             <div class="service_grid grid_0 active">
@@ -69,20 +68,24 @@
                         <div class="circle"></div>
                         <h3>Бизнес</h3>
                     </div>
-                    <p>Регистрация компаний</p>
-                    <p>Сопровождение сделок</p>
-                    <p>Корпоративные споры</p>
-                    <p>Реструктуризация бизнеса</p>
+                    <div class="details">
+                        <p>Регистрация компаний</p>
+                        <p>Сопровождение сделок</p>
+                        <p>Корпоративные споры</p>
+                        <p>Реструктуризация бизнеса</p>
+                    </div>
                 </div>
 
-                <div class="service_card">
+                 <div class="service_card">
                     <div class="title">
                         <div class="circle"></div>
                         <h3>Налоги</h3>
                     </div>
-                    <p>Раз</p>
-                    <p>Два</p>
-                    <p>Три</p>
+                    <div class="details">
+                        <p>Раз</p>
+                        <p>Два</p>
+                        <p>Три</p>
+                    </div>
                 </div>
 
                 <div class="service_card">
@@ -90,21 +93,25 @@
                         <div class="circle"></div>
                         <h3>Недвижимость</h3>
                     </div>
-                    <p>Раз</p>
-                    <p>Два</p>
-                    <p>Три</p>
-                    <p>Четыре</p>
+                    <div class="details">
+                        <p>Раз</p>
+                        <p>Два</p>
+                        <p>Три</p>
+                        <p>Четыре</p>
+                    </div>
                 </div>
-
+                
                 <div class="service_card">
                     <div class="title">
                         <div class="circle"></div>
                         <h3>Судебные споры</h3>
                     </div>
-                    <p>Арбитражные дела</p>
-                    <p>Гражданские дела</p>
-                    <p>Уголовные дела</p>
-                    <p>Досудебное урегулирование</p>
+                    <div class="details">
+                        <p>Арбитражные дела</p>
+                        <p>Гражданские дела</p>
+                        <p>Уголовные дела</p>
+                        <p>Досудебное урегулирование</p>
+                    </div>
                 </div>
 
                 <div class="service_card">
@@ -112,9 +119,11 @@
                         <div class="circle"></div>
                         <h3>Договоры</h3>
                     </div>
-                    <p>Составление</p>
-                    <p>Экспертиза</p>
-                    <p>Сопровождение</p>
+                    <div class="details">
+                        <p>Составление</p>
+                        <p>Экспертиза</p>
+                        <p>Сопровождение</p>
+                    </div>
                 </div>
 
                 <div class="service_card">
@@ -122,11 +131,13 @@
                         <div class="circle"></div>
                         <h3>Семейное право</h3>
                     </div>
-                    <p>Разводы</p>
-                    <p>Раздел имущества</p>
-                    <p>Алименты</p>
-                    <p>Наследство</p>
-                </div>
+                    <div class="details">
+                        <p>Разводы</p>
+                        <p>Раздел имущества</p>
+                        <p>Алименты</p>
+                        <p>Наследство</p>
+                    </div>
+                </div> 
             </div>
 
             <div class="service_grid grid_1">
@@ -136,10 +147,12 @@
                         <div class="circle"></div>
                         <h3>Услуга 1</h3>
                     </div>
-                    <p>Арбитражные дела</p>
-                    <p>Гражданские дела</p>
-                    <p>Уголовные дела</p>
-                    <p>Досудебное урегулирование</p>
+                    <div class="details">
+                        <p>Арбитражные дела</p>
+                        <p>Гражданские дела</p>
+                        <p>Уголовные дела</p>
+                        <p>Досудебное урегулирование</p>
+                    </div>
                 </div>
 
                 <div class="service_card">
@@ -147,9 +160,11 @@
                         <div class="circle"></div>
                         <h3>Услуга 2</h3>
                     </div>
-                    <p>Составление</p>
-                    <p>Экспертиза</p>
-                    <p>Сопровождение</p>
+                    <div class="details">
+                        <p>Составление</p>
+                        <p>Экспертиза</p>
+                        <p>Сопровождение</p>
+                    </div>
                 </div>
 
                 <div class="service_card">
@@ -157,10 +172,12 @@
                         <div class="circle"></div>
                         <h3>Услуга 3</h3>
                     </div>
-                    <p>Разводы</p>
-                    <p>Раздел имущества</p>
-                    <p>Алименты</p>
-                    <p>Наследство</p>
+                    <div class="details">
+                        <p>Разводы</p>
+                        <p>Раздел имущества</p>
+                        <p>Алименты</p>
+                        <p>Наследство</p>
+                    </div>
                 </div>
 
                 <div class="service_card">
@@ -168,10 +185,12 @@
                         <div class="circle"></div>
                         <h3>Бизнес</h3>
                     </div>
-                    <p>Регистрация компаний</p>
-                    <p>Сопровождение сделок</p>
-                    <p>Корпоративные споры</p>
-                    <p>Реструктуризация бизнеса</p>
+                    <div class="details">
+                        <p>Регистрация компаний</p>
+                        <p>Сопровождение сделок</p>
+                        <p>Корпоративные споры</p>
+                        <p>Реструктуризация бизнеса</p>
+                    </div>
                 </div>
 
                 <div class="service_card">
@@ -179,9 +198,11 @@
                         <div class="circle"></div>
                         <h3>Налоги</h3>
                     </div>
-                    <p>Раз</p>
-                    <p>Два</p>
-                    <p>Три</p>
+                    <div class="details">
+                        <p>Раз</p>
+                        <p>Два</p>
+                        <p>Три</p>
+                    </div>
                 </div>
 
                 <div class="service_card">
@@ -189,10 +210,12 @@
                         <div class="circle"></div>
                         <h3>Недвижимость</h3>
                     </div>
-                    <p>Раз</p>
-                    <p>Два</p>
-                    <p>Три</p>
-                    <p>Четыре</p>
+                    <div class="details">
+                        <p>Раз</p>
+                        <p>Два</p>
+                        <p>Три</p>
+                        <p>Четыре</p>
+                    </div>
                 </div>              
             </div>
 
