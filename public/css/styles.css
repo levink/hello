@@ -297,7 +297,7 @@ section h3 {
     align-items: center;
 }
 .service_card .details {
-    padding-top: 0.5rem;
+    padding-left: 2rem;
 }
 .service_card .circle {
     border-radius: 50%; 
@@ -308,9 +308,7 @@ section h3 {
 .service_card h3 {
     padding-left: 1rem;
 }
-.service_card .details {
-    padding-left: 2rem;
-}
+
 
 /* #endregion Services */
 

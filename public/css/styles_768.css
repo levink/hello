@@ -54,7 +54,7 @@
     }
     .service_card {
         padding: 1rem;
-        font-size: 0.75rem;
+        font-size: 0.85rem;
         border-width: 0px 0px 1px 0px;
         border-radius: 0px;
     }
@@ -68,7 +68,10 @@
     }
     .service_card .details {
         padding-left: 1rem;
-        display:none;
+        display: none;
+    }
+    .service_card.active .details {
+        display: block;
     }
 
     .about {

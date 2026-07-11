@@ -513,6 +513,21 @@
             });
         });
 
+        // Toggle service_card
+        const cards = document.querySelectorAll('.service_card');
+        cards.forEach(card => {
+            card.addEventListener('click', event => {
+
+                if (!card.classList.contains('active')){
+                    for (let item of cards) {
+                        item.classList.remove('active');
+                    }
+                }
+
+                card.classList.toggle('active');
+            })
+        });
+
         //expect one filled value from [phone, email]
         const form = document.forms['ask_form'];
         function validateBoth() {
