@@ -107,4 +107,20 @@
     .about .btn {
         width: 70%;
     }
+
+    .ask_form {
+        padding: 1rem;
+    }
+    .form_row {
+        gap: 0rem;
+    }
+    .form_group {
+        margin-bottom: 0.5rem;
+    }
+    .form_group label {
+        margin-left: 1rem;
+    }
+    .form_checkbox td {
+        vertical-align: top;
+    }
 }

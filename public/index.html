@@ -339,8 +339,12 @@
                 <textarea id="message" name="message" placeholder="Кратко опишите вашу проблему. Не более 1000 символов." maxlength="1000" autocomplete="off" required ></textarea>
             </div>
             <div class="form_checkbox">
-                <input type="checkbox" id="agree" name="agree" value="1" required />
-                <label for="agree">Даю согласие на обработку <a href="#">персональных данных</a></label>
+                <table>
+                    <tr>
+                        <td><input type="checkbox" id="agree" name="agree" value="1" required /></td>
+                        <td><label for="agree">Даю согласие на обработку <a href="#">персональных данных</a></label></td>
+                    </tr>
+                </table>
             </div>
             <button type="submit" class="btn solid_blue">Отправить заявку</button>
         </form>

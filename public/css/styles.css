@@ -286,7 +286,6 @@ section h3 {
 }
 .service_card {
     transition: all 0.2s ease;
-    cursor: pointer;
     border: 1px solid transparent;
     border-radius: 0.2rem;
     padding: 2rem;
@@ -439,12 +438,13 @@ section h3 {
 }
 .form_checkbox {
     margin-bottom: 1.5rem;
-    padding: 0rem 2rem;
 }
 .form_checkbox input {
     vertical-align: sub;
     width: 1.2rem;
     height: 1.2rem;
+    margin-left: 1rem;
+    margin-right: 0.5rem;
 }
 .form_checkbox a {
     color: var(--text);
