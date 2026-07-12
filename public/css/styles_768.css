@@ -7,7 +7,8 @@
         font-size: 1.2rem;
     }
     .header_container .phone {
-        display:none;
+        font-size: 1rem;
+        font-weight: 600;
     }
     .header_container nav {
         display: none;
@@ -51,6 +52,7 @@
     .service_grid {
         gap: 0rem;
         padding: 0rem;
+        grid-template-columns: auto;
     }
     .service_card {
         padding: 1rem;
@@ -141,5 +143,14 @@
     }
     .contact_item.route > a {
         width: 100%;
+    }
+}
+
+@media (max-width: 450px) {
+    .header_container .phone {
+        display:none;
+    }
+    .header_container .phone_btn {
+        display: block;
     }
 }

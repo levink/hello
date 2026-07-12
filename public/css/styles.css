@@ -77,6 +77,22 @@ header {
     font-size: 1.2rem;
     text-decoration: none;
 }
+.header_container .buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+}
+.header_container .phone_btn {
+    margin-top: 8px;
+    background: none;
+    border: none;
+    display: none;
+}
+.header_container .phone_btn svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--primary);
+}
 .header_container nav {
     display: flex;
     gap: 2rem;
