@@ -525,7 +525,7 @@ section h3 {
 .contact_item .icon > svg {
     opacity: 0.4;
     fill: var(--primary);
-    margin-top: 4px;
+    margin-top: 8px;
     width: 24px;
     height: 24px;
 }

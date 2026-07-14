@@ -135,6 +135,9 @@
     .contact_item {
         padding-left: 1rem;
     }
+    .contact_item .icon > svg {
+        margin-top: 4px;
+    }
     .contact_item.route {
         display: block;
         text-align: center;
