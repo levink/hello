@@ -141,6 +141,8 @@ header {
     padding: 1rem 3rem;
     font-weight: 600;
     text-decoration: none;
+    text-align: center;
+    min-width: 16rem;
 }
 .btn:hover {
     transform: translateY(-2px);

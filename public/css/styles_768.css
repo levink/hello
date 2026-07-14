@@ -43,7 +43,7 @@
     }
 
     .hero .btn {
-        min-width: 80%;
+        width: 100%;
     }
     .service_tab {
         padding: 1rem 1rem;
@@ -107,7 +107,8 @@
         text-align: justify;
     }
     .about .btn {
-        width: 70%;
+        display: block;
+        margin: 1rem;
     }
 
     .ask_form {
