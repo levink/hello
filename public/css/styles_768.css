@@ -47,7 +47,7 @@
     }
     .service_tab {
         padding: 1rem 1rem;
-        font-size: 0.8rem;
+        font-size: 1rem;
     }
     .service_grid {
         gap: 0rem;
@@ -56,7 +56,7 @@
     }
     .service_card {
         padding: 1rem;
-        font-size: 0.85rem;
+        font-size: 0.95rem;
         border-width: 0px 0px 1px 0px;
         border-radius: 0px;
     }
@@ -64,8 +64,6 @@
         border-bottom: 1px solid var(--bg);
     }
     .service_card .circle {
-        width: 0.75rem;
-        height: 0.75rem;
         display: none;
     }
     .service_card .details {
