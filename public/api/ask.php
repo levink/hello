@@ -78,7 +78,9 @@ function sendMail(array $config, Ask $ask) {
 
         $mail->isHTML(false);
         $mail->setFrom($config['sender_mail'], "Profi-Raisen Notify");
-        $mail->addAddress($config['target']);
+        foreach (explode(',', $config['mail_to']) as $mail_to) {
+            $mail->addAddress(trim($mail_to));
+        }
         $mail->Subject = Mail::createSubject($ask);
         $mail->Body    = Mail::createBody($ask);
 
